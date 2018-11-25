@@ -1,0 +1,9 @@
+-
+  name: Copy File to target Servers
+  hosts: all
+  tasks:
+    - name: Copy File
+      copy:
+       src: /tmp/test-file.txt
+       dest: /tmp/test-file.txt
+#Test Comment for Remote Sync

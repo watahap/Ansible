@@ -1,0 +1,86 @@
+Virtual Machines
+
+ansible controller:  192.168.1.79
+
+ansible-target-1: 192.168.1.96
+
+ansiblel-target-2: 192.168.1.93
+
+***
+
+Ansible
+
+Inventory:
+
+ansible_host - IP of remote machine
+ansible_connection - SSH for linux, winrm for windows
+ansible_user - ssh user
+
+Linux - ansible_ssh_pass - ssh password
+Windows - ansible_password - ssh password
+
+Groups of machines can be organized with a [name of group] header
+Groups of groups can be organized with a [name of group: children] header
+
+YAML
+
+Key Value Pairs
+
+Fruit: Apple
+
+Arrays
+
+Fruits:
+-	Orange
+-	Apple
+-	Banana
+
+Dictionary/Map
+
+Banana:
+	Calories: 105
+	Fat: 0.4g
+	Carbs: 27g
+
+Grapes:
+	Calories: 62
+	Fat: 0.3g
+	Carbs: 16g
+
+
+Dictionaries are unordered collections, while Arrays are ordered.
+
+# Symbolize comments in YAML
+
+Ansible Playbooks:
+
+Orchestration language, where instructions are defined.  Written in YAML
+
+Tasks:
+
+Executing commands
+Installing Packages
+Shutdown/Restart
+
+Module:
+
+Commands ran within tasks of ansible playbooks.
+ansible-doc-l for list of modules while within ansible system.
+
+Run:
+
+Execute ansible playbook: ansible-playbook playbook.yml
+ansible-playbook --help for more commands
+
+Ansible vs. ansible-playbook commands
+
+ansible - testing connectivity, shutting down servers
+
+ansible <hosts> -a <command>
+ansible all -a "/sbin/reboot"
+ansible <hosts> -m <module>
+ansible target1 -m ping
+
+ansible-playbook for executing ansible playbooks.
+ansible playbook <playbook name>
+ansible-playbook playbook-webserver.yaml
